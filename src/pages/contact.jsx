@@ -108,7 +108,22 @@ This is a test message with current form data.`;
     window.location.href = whatsappUrl;
   };
 
-  // Styles
+  // Contact action handlers
+  const handleCall = () => {
+    window.open('tel:+919876543210', '_self');
+  };
+
+  const handleEmail = () => {
+    window.open('mailto:hello@finicare.com?subject=Inquiry from Finicare Website&body=Hello Finicare, I would like to know more about your services.', '_self');
+  };
+
+  const handleMap = () => {
+    const address = "203 Business Avenue, Baner, Pune, Maharashtra 411045";
+    const encodedAddress = encodeURIComponent(address);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+  };
+
+  // Styles - keeping your existing styles, just adding hero background
   const pageStyle = {
     background: "linear-gradient(135deg, #f1f5ff, #ffffff)",
     minHeight: "100vh",
@@ -119,9 +134,31 @@ This is a test message with current form data.`;
     fontFamily: "'Poppins', sans-serif",
   };
 
-  const heroStyle = { textAlign: "center", marginBottom: "3rem", maxWidth: "850px" };
+  // Added hero background style
+  const heroStyle = { 
+    textAlign: "center", 
+    marginBottom: "3rem", 
+    height: "30%",
+    width: "100%",
+    background: "linear-gradient(135deg, #0B1A33 0%, #233047 100%)",
+    color: "white",
+    padding: "8rem 4rem",
+    boxShadow: "0 10px 30px rgba(11, 26, 51, 0.2)",
+  };
+
   const infoGrid = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem", marginBottom: "4rem", width: "100%", maxWidth: "1000px" };
-  const infoCard = { background: "rgba(255, 255, 255, 0.8)", borderRadius: "18px", padding: "2rem", boxShadow: "0 8px 20px rgba(0, 0, 0, 0.07)", textAlign: "center", backdropFilter: "blur(10px)", transition: "all 0.3s ease" };
+  
+  // Updated infoCard to be clickable
+  const infoCard = { 
+    background: "rgba(255, 255, 255, 0.8)", 
+    padding: "2rem", 
+    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.07)", 
+    textAlign: "center", 
+    backdropFilter: "blur(10px)", 
+    transition: "all 0.3s ease",
+    cursor: "pointer" // Added cursor pointer
+  };
+  
   const formContainer = { background: "white", padding: "3rem", borderRadius: "22px", boxShadow: "0 12px 35px rgba(21, 101, 192, 0.12)", width: "100%", maxWidth: "750px", textAlign: "center" };
   const inputStyle = { 
     flex: 1, 
@@ -166,36 +203,74 @@ This is a test message with current form data.`;
 
   return (
     <div style={pageStyle}>
-      {/* Hero Section */}
+      {/* Hero Section with Background */}
       <section style={heroStyle}>
-        <h1 style={{ fontSize: "3rem", fontWeight: "700", color: "#0d47a1", marginBottom: "0.6rem" }}>
+        <h1 style={{ fontSize: "3rem", fontWeight: "700", color: "white", marginBottom: "0.6rem" }}>
           Let's Build Something Great Together
         </h1>
-        <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.7" }}>
+        <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.9)", lineHeight: "1.7", maxWidth: "400px", margin: "0 auto" }}>
           At <strong>Finicare</strong>, every conversation matters. Whether you have a query, need guidance, or want to explore a service — our team is ready to assist you personally.
         </p>
       </section>
 
-      {/* Info Cards */}
+      {/* Interactive Info Cards */}
       <section style={infoGrid}>
-        {[
-          { icon: <MapPin color="#1565c0" size={35} />, title: "Visit Our Office", text: "203 Business Avenue, Baner, Pune, Maharashtra 411045" },
-          { icon: <Mail color="#1565c0" size={35} />, title: "Write to Us", text: "hello@finicare.com" },
-          { icon: <Phone color="#1565c0" size={35} />, title: "Call or WhatsApp", text: "+91 98765 43210" },
-        ].map((item, i) => (
-          <div
-            key={i}
-            style={infoCard}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-6px)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
-          >
-            {item.icon}
-            <h3 style={{ color: "#0d47a1", marginTop: "1rem", fontSize: "1.3rem", fontWeight: "600" }}>
-              {item.title}
-            </h3>
-            <p style={{ color: "#444", fontSize: "1rem", marginTop: "0.6rem" }}>{item.text}</p>
-          </div>
-        ))}
+        {/* Map Card */}
+        <div
+          style={infoCard}
+          onClick={handleMap}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-6px)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+        >
+          <MapPin color="#1565c0" size={35} />
+          <h3 style={{ color: "#0d47a1", marginTop: "1rem", fontSize: "1.3rem", fontWeight: "600" }}>
+            Visit Our Office
+          </h3>
+          <p style={{ color: "#444", fontSize: "1rem", marginTop: "0.6rem" }}>
+            203 Business Avenue, Baner, Pune, Maharashtra 411045
+          </p>
+          <p style={{ color: "#1565c0", fontSize: "0.9rem", marginTop: "0.5rem", fontWeight: "600" }}>
+            Click to Open Map
+          </p>
+        </div>
+
+        {/* Email Card */}
+        <div
+          style={infoCard}
+          onClick={handleEmail}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-6px)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+        >
+          <Mail color="#1565c0" size={35} />
+          <h3 style={{ color: "#0d47a1", marginTop: "1rem", fontSize: "1.3rem", fontWeight: "600" }}>
+            Write to Us
+          </h3>
+          <p style={{ color: "#444", fontSize: "1rem", marginTop: "0.6rem" }}>
+            hello@finicare.com
+          </p>
+          <p style={{ color: "#1565c0", fontSize: "0.9rem", marginTop: "0.5rem", fontWeight: "600" }}>
+            Click to Send Email
+          </p>
+        </div>
+
+        {/* Phone Card */}
+        <div
+          style={infoCard}
+          onClick={handleCall}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-6px)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+        >
+          <Phone color="#1565c0" size={35} />
+          <h3 style={{ color: "#0d47a1", marginTop: "1rem", fontSize: "1.3rem", fontWeight: "600" }}>
+            Call or WhatsApp
+          </h3>
+          <p style={{ color: "#444", fontSize: "1rem", marginTop: "0.6rem" }}>
+            +91 98765 43210
+          </p>
+          <p style={{ color: "#1565c0", fontSize: "0.9rem", marginTop: "0.5rem", fontWeight: "600" }}>
+            Click to Call
+          </p>
+        </div>
       </section>
 
       {/* Contact Form */}
@@ -303,25 +378,6 @@ This is a test message with current form data.`;
             </button>
           </div>
         </form>
-        
-        {/* Form Data Preview
-        <div style={{ 
-          background: "#f8f9fa", 
-          padding: "1.5rem", 
-          borderRadius: "10px", 
-          marginTop: "2rem",
-          border: "1px solid #e9ecef",
-          textAlign: "left"
-        }}>
-          <h4 style={{ color: "#0d47a1", marginBottom: "1rem" }}> Preview:</h4>
-          <div style={{ fontSize: "0.9rem", color: "#666" }}>
-            <p><strong>Name:</strong> {formData.name || "Not entered"}</p>
-            <p><strong>Email:</strong> {formData.email || "Not entered"}</p>
-            <p><strong>Phone:</strong> {formData.phone || "Not entered"}</p>
-            <p><strong>Services:</strong> {formData.services.length > 0 ? formData.services.join(", ") : "None selected"}</p>
-            <p><strong>Message:</strong> {formData.message || "Not entered"}</p>
-          </div>
-        </div> */}
 
         <p style={{ fontSize: "0.9rem", color: "#777", marginTop: "1rem" }}>
           💬 Fill the form and click "Send via WhatsApp". Your message will open in WhatsApp ready to send.

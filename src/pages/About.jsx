@@ -17,6 +17,20 @@ export default function About() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Rich Gold Color Palette
+  const colors = {
+    primary: "#0B1A33",           // Deep navy
+    secondary: "#B8860B",         // Rich gold
+    accent: "#D4AF37",            // Metallic gold
+    lightGold: "#F5E6B8",         // Light gold
+    darkGold: "#8B6914",          // Dark gold
+    cream: "#FFFBF0",             // Cream background
+    background: "#F8F9FA",        // Light gray
+    textDark: "#2D3748",          // Dark gray
+    textLight: "#718096",         // Medium gray
+    white: "#FFFFFF",
+  };
+
   // Founder information
   const founder = {
     name: "Alex Thompson",
@@ -84,296 +98,339 @@ export default function About() {
     { icon: "🎯", number: "99%", label: "Client Retention" },
   ];
 
-  // Responsive Styles
+  // Enhanced Responsive Styles with Gold Theme
   const styles = {
     container: {
-      maxWidth: '1500px',
+      maxWidth: '1400px',
       margin: '0 auto',
       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-      padding: isMobile ? '0 16px' : '0 20px',
+      padding: isMobile ? '0 16px' : '0 24px',
       paddingTop: isMobile ? '80px' : '100px',
+      lineHeight: '1.6',
+      background: colors.cream,
     },
     hero: {
-      background: 'linear-gradient(135deg, #0B1A33 0%, #233047 100%)',
-      color: 'white',
-      padding: isMobile ? '30px 16px 50px 16px' : '40px 20px 80px 20px',
+      background: `linear-gradient(135deg, ${colors.primary} 0%, #1a2b4d 100%)`,
+      color: colors.white,
+      padding: isMobile ? '40px 16px 60px 16px' : '60px 24px 100px 24px',
       textAlign: 'center',
-      borderRadius: isMobile ? '0 0 20px 20px' : '0 0 30px 30px',
+      borderRadius: isMobile ? '0 0 24px 24px' : '0 0 32px 32px',
       marginTop: isMobile ? '-50px' : '-60px',
-      marginBottom: isMobile ? '40px' : '60px',
+      marginBottom: isMobile ? '50px' : '80px',
       position: 'relative',
       zIndex: 1,
+      boxShadow: '0 10px 40px rgba(11, 26, 51, 0.2)',
     },
     heroContent: {
       maxWidth: '900px',
-      margin: isMobile ? '60px auto' : '80px auto',
+      margin: isMobile ? '40px auto' : '60px auto',
     },
     heroTitle: {
-      fontSize: isMobile ? '2rem' : '3.5rem',
+      fontSize: isMobile ? '2.2rem' : '3.75rem',
       fontWeight: '700',
-      marginBottom: isMobile ? '15px' : '20px',
-      lineHeight: '1.2',
+      marginBottom: isMobile ? '20px' : '28px',
+      lineHeight: '1.1',
+      letterSpacing: '-0.02em',
     },
     highlight: {
-      color: '#d4af37',
-      display: 'block',
+      color: colors.accent,
+      display: 'inline-block',
+      background: `linear-gradient(135deg, ${colors.accent}, ${colors.lightGold})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
     },
     heroSubtitle: {
-      fontSize: isMobile ? '1rem' : '1.3rem',
+      fontSize: isMobile ? '1.1rem' : '1.4rem',
       lineHeight: '1.6',
-      opacity: '0.95',
-      marginBottom: isMobile ? '30px' : '40px',
+      opacity: '0.9',
+      marginBottom: isMobile ? '35px' : '50px',
       padding: isMobile ? '0 10px' : '0',
+      fontWeight: '400',
+      maxWidth: '700px',
+      margin: '0 auto',
     },
     heroStats: {
       display: 'grid',
-      gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: isMobile ? '20px' : '30px',
-      marginTop: isMobile ? '30px' : '50px',
+      gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
+      gap: isMobile ? '25px' : '40px',
+      marginTop: isMobile ? '40px' : '60px',
+      maxWidth: '800px',
+      margin: '40px auto 0',
     },
     statItem: { 
       textAlign: 'center',
-      padding: isMobile ? '10px' : '0',
+      padding: isMobile ? '15px' : '20px',
+      background: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: '16px',
+      backdropFilter: 'blur(10px)',
+      border: `1px solid rgba(212, 175, 55, 0.3)`,
     },
     statIcon: { 
-      fontSize: isMobile ? '1.8rem' : '2.5rem', 
-      marginBottom: isMobile ? '8px' : '10px' 
+      fontSize: isMobile ? '2rem' : '2.8rem', 
+      marginBottom: isMobile ? '12px' : '16px',
+      opacity: '0.9',
     },
     statNumber: { 
-      fontSize: isMobile ? '1.5rem' : '2rem', 
+      fontSize: isMobile ? '1.6rem' : '2.2rem', 
       fontWeight: '700', 
-      marginBottom: isMobile ? '3px' : '5px' 
+      marginBottom: isMobile ? '5px' : '8px',
+      color: colors.accent,
     },
     statLabel: { 
-      fontSize: isMobile ? '0.85rem' : '1rem', 
-      opacity: '0.9' 
+      fontSize: isMobile ? '0.9rem' : '1rem', 
+      opacity: '0.9',
+      fontWeight: '500',
     },
     section: { 
-      marginBottom: isMobile ? '50px' : '80px' 
+      marginBottom: isMobile ? '60px' : '100px' 
     },
     sectionTitle: { 
-      fontSize: isMobile ? '1.8rem' : '2.8rem', 
-      fontWeight: '600', 
+      fontSize: isMobile ? '2rem' : '3rem', 
+      fontWeight: '700', 
       textAlign: 'center', 
-      marginBottom: isMobile ? '15px' : '20px', 
-      color: '#2c5530',
+      marginBottom: isMobile ? '20px' : '28px', 
+      color: colors.primary,
       lineHeight: '1.2',
+      letterSpacing: '-0.01em',
     },
     sectionSubtitle: { 
-      fontSize: isMobile ? '1rem' : '1.2rem', 
+      fontSize: isMobile ? '1.1rem' : '1.3rem', 
       textAlign: 'center', 
-      color: '#666', 
-      marginBottom: isMobile ? '30px' : '50px', 
-      maxWidth: '600px', 
+      color: colors.textLight, 
+      marginBottom: isMobile ? '40px' : '60px', 
+      maxWidth: '700px', 
       margin: '0 auto', 
       lineHeight: '1.6',
-      padding: isMobile ? '0 10px' : '0',
+      padding: isMobile ? '0 16px' : '0',
+      fontWeight: '400',
     },
     tabContainer: { 
-      background: '#f8f9fa', 
-      borderRadius: isMobile ? '15px' : '20px', 
+      background: colors.white, 
+      borderRadius: isMobile ? '20px' : '24px', 
       overflow: 'hidden', 
-      boxShadow: '0 10px 30px rgba(0,0,0,0.1)' 
+      boxShadow: '0 8px 40px rgba(0,0,0,0.08)',
+      border: `1px solid rgba(212, 175, 55, 0.2)`,
     },
     tabHeaders: { 
       display: 'flex', 
       flexDirection: isMobile ? 'column' : 'row',
-      background: 'white', 
-      borderBottom: '2px solid #e9ecef' 
+      background: `linear-gradient(135deg, ${colors.lightGold} 0%, #f8f0d5 100%)`, 
+      borderBottom: `1px solid rgba(212, 175, 55, 0.3)`,
     },
     tabHeader: { 
       flex: 1, 
-      padding: isMobile ? '15px' : '20px', 
+      padding: isMobile ? '18px 16px' : '24px 32px', 
       border: 'none', 
       background: 'transparent', 
-      fontSize: isMobile ? '1rem' : '1.1rem', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
       fontWeight: '600', 
       cursor: 'pointer', 
       transition: 'all 0.3s ease', 
-      color: '#666',
-      borderBottom: isMobile ? '1px solid #e9ecef' : 'none',
+      color: colors.darkGold,
+      borderBottom: isMobile ? `1px solid rgba(212, 175, 55, 0.3)` : 'none',
+      position: 'relative',
     },
     activeTab: { 
-      background: '#0B1A33', 
-      color: 'white' 
+      background: colors.white, 
+      color: colors.primary,
+      boxShadow: '0 -2px 10px rgba(0,0,0,0.05)',
     },
     tabContent: { 
-      padding: isMobile ? '25px' : '40px', 
-      minHeight: isMobile ? '200px' : '300px' 
+      padding: isMobile ? '32px 20px' : '48px 40px', 
+      minHeight: isMobile ? '280px' : '350px',
+      background: colors.white,
     },
     tabPanel: { 
       animation: 'fadeIn 0.5s ease' 
     },
     tabTitle: { 
-      fontSize: isMobile ? '1.5rem' : '2rem', 
-      marginBottom: isMobile ? '15px' : '20px', 
-      color: '#d4af37',
+      fontSize: isMobile ? '1.6rem' : '2.2rem', 
+      marginBottom: isMobile ? '20px' : '28px', 
+      color: colors.secondary,
       textAlign: isMobile ? 'center' : 'left',
+      fontWeight: '600',
     },
     tabText: { 
-      fontSize: isMobile ? '1rem' : '1.1rem', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
       lineHeight: '1.7', 
-      marginBottom: isMobile ? '20px' : '25px', 
-      color: '#555',
+      marginBottom: isMobile ? '25px' : '32px', 
+      color: colors.textDark,
       textAlign: isMobile ? 'center' : 'left',
     },
     missionList: { 
       listStyle: 'none', 
-      padding: 0 
+      padding: 0,
+      marginTop: isMobile ? '25px' : '32px',
     },
     missionListItem: { 
-      fontSize: isMobile ? '1rem' : '1.1rem', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
       lineHeight: isMobile ? '1.8' : '2', 
-      color: '#555', 
-      marginBottom: isMobile ? '8px' : '10px',
-      padding: isMobile ? '8px 0' : '0',
+      color: colors.textDark, 
+      marginBottom: isMobile ? '12px' : '16px',
+      padding: isMobile ? '12px 0' : '16px 0',
+      paddingLeft: '32px',
+      position: 'relative',
     },
     visionGoals: { 
       display: 'flex', 
       flexDirection: 'column', 
-      gap: isMobile ? '12px' : '15px', 
-      marginTop: isMobile ? '20px' : '25px' 
+      gap: isMobile ? '16px' : '20px', 
+      marginTop: isMobile ? '28px' : '36px' 
     },
     goal: { 
-      background: '#ebe76bff', 
-      padding: isMobile ? '12px 15px' : '15px 20px', 
-      borderRadius: '10px', 
-      fontWeight: '500', 
-      color: '#2c5530',
-      fontSize: isMobile ? '0.95rem' : '1rem',
+      background: `linear-gradient(135deg, ${colors.lightGold}, #f8f0d5)`, 
+      padding: isMobile ? '20px' : '24px', 
+      borderRadius: '16px', 
+      fontWeight: '600', 
+      color: colors.darkGold,
+      fontSize: isMobile ? '1.1rem' : '1.2rem',
+      border: `1px solid rgba(184, 134, 11, 0.3)`,
+      textAlign: 'center',
     },
     valuesGrid: { 
       display: 'grid', 
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))', 
-      gap: isMobile ? '15px' : '20px', 
-      marginTop: isMobile ? '20px' : '30px' 
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))', 
+      gap: isMobile ? '20px' : '28px', 
+      marginTop: isMobile ? '28px' : '40px' 
     },
     valueCard: { 
-      background: 'white', 
-      padding: isMobile ? '20px' : '25px', 
-      borderRadius: '15px', 
-      boxShadow: '0 5px 15px rgba(0,0,0,0.08)', 
+      background: colors.white, 
+      padding: isMobile ? '24px' : '32px', 
+      borderRadius: '20px', 
+      boxShadow: '0 4px 20px rgba(0,0,0,0.06)', 
       textAlign: 'center', 
-      border: '2px solid #e8f5e8', 
-      transition: 'transform 0.3s ease' 
+      border: `1px solid rgba(212, 175, 55, 0.2)`, 
+      transition: 'all 0.3s ease',
+      cursor: 'pointer',
     },
     valueCardTitle: { 
-      color: '#2c5530', 
-      marginBottom: isMobile ? '12px' : '15px', 
-      fontSize: isMobile ? '1.1rem' : '1.3rem' 
+      color: colors.secondary, 
+      marginBottom: isMobile ? '16px' : '20px', 
+      fontSize: isMobile ? '1.3rem' : '1.5rem',
+      fontWeight: '600',
     },
     valueCardText: { 
-      color: '#666', 
+      color: colors.textLight, 
       lineHeight: '1.6',
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      fontSize: isMobile ? '1rem' : '1.1rem',
     },
     founderContainer: { 
       display: 'grid', 
       gridTemplateColumns: isMobile ? '1fr' : '1fr 2fr', 
-      gap: isMobile ? '30px' : '50px', 
+      gap: isMobile ? '40px' : '60px', 
       alignItems: 'start', 
-      maxWidth: '1000px', 
+      maxWidth: '1200px', 
       margin: '0 auto', 
-      background: 'white', 
-      padding: isMobile ? '25px' : '40px', 
-      borderRadius: isMobile ? '15px' : '20px', 
-      boxShadow: '0 10px 30px rgba(0,0,0,0.1)' 
+      background: colors.white, 
+      padding: isMobile ? '32px' : '48px', 
+      borderRadius: isMobile ? '20px' : '28px', 
+      boxShadow: '0 8px 40px rgba(0,0,0,0.08)',
+      border: `1px solid rgba(212, 175, 55, 0.2)`,
     },
     founderImageContainer: { 
-      textAlign: 'center' 
+      textAlign: 'center',
+      position: 'relative',
     },
     founderImage: { 
       width: '100%', 
-      maxWidth: isMobile ? '250px' : '300px', 
-      borderRadius: isMobile ? '15px' : '20px', 
-      boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
+      maxWidth: isMobile ? '280px' : '360px', 
+      borderRadius: isMobile ? '20px' : '24px', 
+      boxShadow: '0 12px 40px rgba(0,0,0,0.15)',
       margin: '0 auto',
+      border: `3px solid ${colors.lightGold}`,
     },
     founderInfo: { 
-      padding: isMobile ? '0' : '0 20px' 
+      padding: isMobile ? '0' : '0 24px' 
     },
     founderName: { 
-      fontSize: isMobile ? '1.8rem' : '2.2rem', 
-      fontWeight: '600', 
-      marginBottom: isMobile ? '8px' : '10px', 
-      color: '#2c5530',
+      fontSize: isMobile ? '2rem' : '2.5rem', 
+      fontWeight: '700', 
+      marginBottom: isMobile ? '12px' : '16px', 
+      color: colors.primary,
       textAlign: isMobile ? 'center' : 'left',
+      lineHeight: '1.1',
     },
     founderRole: { 
-      fontSize: isMobile ? '1.1rem' : '1.3rem', 
-      color: '#4a7c59', 
-      marginBottom: isMobile ? '12px' : '15px', 
-      fontWeight: '500',
+      fontSize: isMobile ? '1.2rem' : '1.4rem', 
+      color: colors.secondary, 
+      marginBottom: isMobile ? '16px' : '20px', 
+      fontWeight: '600',
       textAlign: isMobile ? 'center' : 'left',
     },
     founderExperience: { 
-      color: '#666', 
-      marginBottom: isMobile ? '6px' : '8px', 
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      color: colors.textLight, 
+      marginBottom: isMobile ? '8px' : '12px', 
+      fontSize: isMobile ? '1rem' : '1.1rem',
       textAlign: isMobile ? 'center' : 'left',
+      fontWeight: '500',
     },
     founderEducation: { 
-      color: '#666', 
-      marginBottom: isMobile ? '15px' : '20px', 
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      color: colors.textLight, 
+      marginBottom: isMobile ? '20px' : '28px', 
+      fontSize: isMobile ? '1rem' : '1.1rem',
       textAlign: isMobile ? 'center' : 'left',
+      fontWeight: '500',
     },
     specializations: { 
-      marginBottom: isMobile ? '15px' : '20px' 
+      marginBottom: isMobile ? '20px' : '28px' 
     },
     specializationsTitle: { 
-      fontSize: isMobile ? '1.1rem' : '1.2rem', 
+      fontSize: isMobile ? '1.2rem' : '1.3rem', 
       fontWeight: '600', 
-      marginBottom: isMobile ? '12px' : '15px', 
-      color: '#2c5530',
+      marginBottom: isMobile ? '16px' : '20px', 
+      color: colors.primary,
       textAlign: isMobile ? 'center' : 'left',
     },
     specializationsGrid: { 
       display: 'flex', 
       flexWrap: 'wrap', 
-      gap: isMobile ? '8px' : '10px',
+      gap: isMobile ? '10px' : '12px',
       justifyContent: isMobile ? 'center' : 'flex-start',
     },
     specialization: { 
-      background: '#e8f5e8', 
-      padding: isMobile ? '6px 12px' : '8px 16px', 
-      borderRadius: '20px', 
-      fontSize: isMobile ? '0.85rem' : '0.95rem', 
-      color: '#2c5530', 
-      fontWeight: '500' 
+      background: `linear-gradient(135deg, ${colors.lightGold}, #f8f0d5)`, 
+      padding: isMobile ? '10px 16px' : '12px 20px', 
+      borderRadius: '24px', 
+      fontSize: isMobile ? '0.9rem' : '1rem', 
+      color: colors.darkGold, 
+      fontWeight: '600',
+      border: `1px solid rgba(184, 134, 11, 0.3)`,
     },
     founderQuote: { 
       fontStyle: 'italic', 
-      color: '#777', 
-      borderLeft: isMobile ? 'none' : '3px solid #4a7c59', 
-      paddingLeft: isMobile ? '0' : '15px', 
-      margin: isMobile ? '20px 0' : '25px 0', 
-      fontSize: isMobile ? '1rem' : '1.1rem',
+      color: colors.textLight, 
+      borderLeft: isMobile ? 'none' : `4px solid ${colors.accent}`, 
+      paddingLeft: isMobile ? '0' : '24px', 
+      margin: isMobile ? '24px 0' : '32px 0', 
+      fontSize: isMobile ? '1.1rem' : '1.3rem',
       textAlign: isMobile ? 'center' : 'left',
-      padding: isMobile ? '15px' : '0 0 0 15px',
-      background: isMobile ? '#f8f9fa' : 'transparent',
-      borderRadius: isMobile ? '10px' : '0',
+      padding: isMobile ? '20px' : '0 0 0 24px',
+      background: isMobile ? colors.lightGold : 'transparent',
+      borderRadius: isMobile ? '12px' : '0',
+      fontWeight: '500',
+      lineHeight: '1.6',
     },
     founderBio: { 
-      marginBottom: isMobile ? '20px' : '25px' 
+      marginBottom: isMobile ? '24px' : '32px' 
     },
     founderBioText: { 
-      fontSize: isMobile ? '1rem' : '1.1rem', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
       lineHeight: '1.7', 
-      color: '#555',
+      color: colors.textDark,
       textAlign: isMobile ? 'center' : 'left',
     },
     achievements: { 
-      background: '#f8f9fa', 
-      padding: isMobile ? '15px' : '20px', 
-      borderRadius: '15px', 
-      border: '1px solid #e9ecef' 
+      background: colors.lightGold, 
+      padding: isMobile ? '20px' : '28px', 
+      borderRadius: '16px', 
+      border: `1px solid rgba(184, 134, 11, 0.3)`,
     },
     achievementsTitle: { 
-      fontSize: isMobile ? '1.1rem' : '1.2rem', 
+      fontSize: isMobile ? '1.2rem' : '1.3rem', 
       fontWeight: '600', 
-      marginBottom: isMobile ? '12px' : '15px', 
-      color: '#2c5530',
+      marginBottom: isMobile ? '16px' : '20px', 
+      color: colors.primary,
       textAlign: isMobile ? 'center' : 'left',
     },
     achievementsList: { 
@@ -381,152 +438,178 @@ export default function About() {
       padding: 0 
     },
     achievementItem: { 
-      fontSize: isMobile ? '0.9rem' : '1rem', 
+      fontSize: isMobile ? '1rem' : '1.1rem', 
       lineHeight: isMobile ? '1.6' : '1.8', 
-      color: '#555', 
-      marginBottom: isMobile ? '6px' : '8px' 
+      color: colors.textDark, 
+      marginBottom: isMobile ? '10px' : '12px',
+      paddingLeft: '24px',
+      position: 'relative',
+      fontWeight: '500',
     },
     servicesGrid: { 
       display: 'grid', 
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', 
-      gap: isMobile ? '20px' : '30px', 
-      marginTop: isMobile ? '30px' : '50px' 
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))', 
+      gap: isMobile ? '24px' : '32px', 
+      marginTop: isMobile ? '40px' : '60px' 
     },
     serviceCard: { 
-      background: 'white', 
-      padding: isMobile ? '20px' : '30px', 
-      borderRadius: '15px', 
+      background: colors.white, 
+      padding: isMobile ? '28px' : '40px', 
+      borderRadius: '20px', 
       textAlign: 'center', 
-      border: '1px solid #e9ecef', 
+      border: `1px solid rgba(212, 175, 55, 0.2)`, 
       cursor: 'pointer', 
-      transition: 'all 0.3s ease' 
+      transition: 'all 0.3s ease',
+      position: 'relative',
+      overflow: 'hidden',
     },
     serviceIcon: { 
-      fontSize: isMobile ? '2.5rem' : '3rem', 
-      marginBottom: isMobile ? '15px' : '20px' 
+      fontSize: isMobile ? '3rem' : '3.5rem', 
+      marginBottom: isMobile ? '20px' : '24px',
+      transition: 'transform 0.3s ease',
     },
     serviceName: { 
-      fontSize: isMobile ? '1.2rem' : '1.4rem', 
+      fontSize: isMobile ? '1.4rem' : '1.6rem', 
       fontWeight: '600', 
-      marginBottom: isMobile ? '12px' : '15px', 
-      color: '#2c5530' 
+      marginBottom: isMobile ? '16px' : '20px', 
+      color: colors.primary,
+      transition: 'color 0.3s ease',
     },
     serviceDescription: { 
-      color: '#666', 
+      color: colors.textLight, 
       lineHeight: '1.6',
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      fontSize: isMobile ? '1rem' : '1.1rem',
+      transition: 'color 0.3s ease',
     },
     timeline: { 
       position: 'relative', 
-      maxWidth: '800px', 
-      margin: isMobile ? '30px auto 0' : '50px auto 0' 
+      maxWidth: '900px', 
+      margin: isMobile ? '40px auto 0' : '60px auto 0' 
     },
     timelineItem: { 
       display: 'flex', 
       flexDirection: isMobile ? 'column' : 'row',
       alignItems: isMobile ? 'flex-start' : 'center', 
-      marginBottom: isMobile ? '30px' : '40px', 
-      background: 'white', 
-      padding: isMobile ? '20px' : '25px', 
-      borderRadius: '15px', 
-      boxShadow: '0 5px 15px rgba(0,0,0,0.08)', 
-      transition: 'transform 0.3s ease' 
+      marginBottom: isMobile ? '32px' : '48px', 
+      background: colors.white, 
+      padding: isMobile ? '24px' : '32px', 
+      borderRadius: '20px', 
+      boxShadow: '0 4px 20px rgba(0,0,0,0.06)', 
+      transition: 'all 0.3s ease',
+      border: `1px solid rgba(212, 175, 55, 0.2)`,
+      position: 'relative',
     },
     timelineYear: { 
-      background: '#2c5530', 
-      color: 'white', 
-      padding: isMobile ? '8px 15px' : '10px 20px', 
-      borderRadius: '25px', 
-      fontWeight: '600', 
-      marginRight: isMobile ? '0' : '25px', 
-      marginBottom: isMobile ? '15px' : '0',
+      background: `linear-gradient(135deg, ${colors.secondary}, ${colors.darkGold})`, 
+      color: colors.white, 
+      padding: isMobile ? '12px 20px' : '14px 24px', 
+      borderRadius: '28px', 
+      fontWeight: '700', 
+      marginRight: isMobile ? '0' : '28px', 
+      marginBottom: isMobile ? '16px' : '0',
       flexShrink: 0, 
-      fontSize: isMobile ? '1rem' : '1.1rem',
+      fontSize: isMobile ? '1.1rem' : '1.2rem',
       alignSelf: isMobile ? 'flex-start' : 'center',
+      boxShadow: '0 4px 15px rgba(184, 134, 11, 0.4)',
     },
     timelineContent: { 
       flex: 1 
     },
     timelineEvent: { 
-      fontSize: isMobile ? '1.1rem' : '1.3rem', 
+      fontSize: isMobile ? '1.3rem' : '1.5rem', 
       fontWeight: '600', 
-      marginBottom: isMobile ? '6px' : '8px', 
-      color: '#2c5530' 
+      marginBottom: isMobile ? '8px' : '12px', 
+      color: colors.primary 
     },
     timelineDescription: { 
-      color: '#666', 
+      color: colors.textLight, 
       lineHeight: '1.6',
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      fontSize: isMobile ? '1rem' : '1.1rem',
     },
     testimonialSection: { 
-      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)', 
-      padding: isMobile ? '50px 16px' : '80px 20px', 
-      marginBottom: isMobile ? '50px' : '80px', 
-      borderRadius: isMobile ? '20px' : '30px' 
+      background: `linear-gradient(135deg, ${colors.lightGold} 0%, #f8f0d5 100%)`, 
+      padding: isMobile ? '60px 16px' : '100px 24px', 
+      marginBottom: isMobile ? '60px' : '100px', 
+      borderRadius: isMobile ? '24px' : '32px',
+      border: `1px solid rgba(212, 175, 55, 0.3)`,
     },
     testimonialsGrid: { 
       display: 'grid', 
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', 
-      gap: isMobile ? '20px' : '30px', 
-      marginTop: isMobile ? '30px' : '50px' 
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))', 
+      gap: isMobile ? '24px' : '32px', 
+      marginTop: isMobile ? '40px' : '60px' 
     },
     testimonialCard: { 
-      background: 'white', 
-      padding: isMobile ? '20px' : '30px', 
-      borderRadius: isMobile ? '15px' : '20px', 
-      boxShadow: '0 5px 20px rgba(0,0,0,0.1)', 
-      transition: 'transform 0.3s ease' 
+      background: colors.white, 
+      padding: isMobile ? '28px' : '40px', 
+      borderRadius: isMobile ? '20px' : '24px', 
+      boxShadow: '0 4px 20px rgba(0,0,0,0.06)', 
+      transition: 'transform 0.3s ease',
+      border: `1px solid rgba(212, 175, 55, 0.2)`,
+      position: 'relative',
     },
     rating: { 
-      marginBottom: isMobile ? '12px' : '15px', 
-      fontSize: isMobile ? '1rem' : '1.2rem' 
+      marginBottom: isMobile ? '16px' : '20px', 
+      fontSize: isMobile ? '1.2rem' : '1.4rem' 
     },
     testimonialText: { 
-      fontSize: isMobile ? '0.95rem' : '1.1rem', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
       lineHeight: '1.6', 
-      color: '#555', 
-      marginBottom: isMobile ? '15px' : '20px', 
-      fontStyle: 'italic' 
+      color: colors.textDark, 
+      marginBottom: isMobile ? '20px' : '24px', 
+      fontStyle: 'italic',
+      fontWeight: '500',
     },
     clientInfo: { 
       display: 'flex', 
       flexDirection: 'column' 
     },
     clientName: { 
-      color: '#2c5530', 
-      marginBottom: '5px',
-      fontSize: isMobile ? '1rem' : '1.1rem',
+      color: colors.primary, 
+      marginBottom: '6px',
+      fontSize: isMobile ? '1.1rem' : '1.2rem',
+      fontWeight: '600',
     },
     clientRole: { 
-      color: '#666', 
-      fontSize: isMobile ? '0.85rem' : '0.9rem' 
+      color: colors.textLight, 
+      fontSize: isMobile ? '0.9rem' : '1rem',
+      fontWeight: '500',
     },
     ctaButton: { 
-      background: '#d4af37', 
-      color: '#2c5530', 
+      background: `linear-gradient(135deg, ${colors.accent}, ${colors.secondary})`, 
+      color: colors.primary, 
       border: 'none', 
-      padding: isMobile ? '14px 30px' : '18px 45px', 
+      padding: isMobile ? '16px 32px' : '20px 48px', 
       borderRadius: '50px', 
-      fontSize: isMobile ? '1rem' : '1.1rem', 
-      fontWeight: '600', 
+      fontSize: isMobile ? '1.1rem' : '1.2rem', 
+      fontWeight: '700', 
       cursor: 'pointer', 
       transition: 'all 0.3s ease',
       width: isMobile ? '100%' : 'auto',
-      maxWidth: isMobile ? '280px' : 'none',
+      maxWidth: isMobile ? '300px' : 'none',
+      boxShadow: '0 4px 20px rgba(212, 175, 55, 0.4)',
+      letterSpacing: '0.02em',
     },
   };
 
   // Dynamic styles
   const getServiceCardStyle = (index) => ({
     ...styles.serviceCard,
-    transform: hoveredService === index && !isMobile ? 'translateY(-5px)' : 'translateY(0)',
-    boxShadow: hoveredService === index && !isMobile ? '0 15px 35px rgba(0,0,0,0.15)' : '0 5px 20px rgba(0,0,0,0.1)'
+    transform: hoveredService === index && !isMobile ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)',
+    boxShadow: hoveredService === index && !isMobile ? 
+      '0 20px 40px rgba(212, 175, 55, 0.15)' : 
+      '0 4px 20px rgba(0,0,0,0.06)',
+    borderColor: hoveredService === index && !isMobile ? 
+      `rgba(212, 175, 55, 0.4)` : 
+      'rgba(212, 175, 55, 0.2)'
   });
 
   const getCtaButtonStyle = () => ({
     ...styles.ctaButton,
     transform: hoveredButton && !isMobile ? 'scale(1.05)' : 'scale(1)',
-    backgroundColor: hoveredButton ? '#e6c130' : '#d4af37'
+    boxShadow: hoveredButton && !isMobile ? 
+      '0 8px 30px rgba(212, 175, 55, 0.6)' : 
+      '0 4px 20px rgba(212, 175, 55, 0.4)'
   });
 
   return (
@@ -547,7 +630,7 @@ export default function About() {
               <div key={index} style={styles.statItem}>
                 <div style={styles.statIcon}>{stat.icon}</div>
                 <div style={styles.statNumber}>{stat.number}</div>
-                <div style={{ ...styles.statLabel, color: '#f0e6b8' }}>{stat.label}</div>
+                <div style={styles.statLabel}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -561,7 +644,10 @@ export default function About() {
             {["mission", "vision", "approach"].map(tab => (
               <button
                 key={tab}
-                style={{ ...styles.tabHeader, ...(activeTab === tab ? styles.activeTab : {}) }}
+                style={{ 
+                  ...styles.tabHeader, 
+                  ...(activeTab === tab ? styles.activeTab : {}) 
+                }}
                 onClick={() => setActiveTab(tab)}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -695,7 +781,7 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
           <button 
             style={getCtaButtonStyle()} 
             onMouseEnter={() => !isMobile && setHoveredButton(true)} 
