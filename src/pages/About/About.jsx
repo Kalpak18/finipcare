@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import "./About.css";
+import "./about.css";
 
 export default function About() {
   const navigate = useNavigate();

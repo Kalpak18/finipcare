@@ -1,7 +1,7 @@
 // src/pages/Services.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "./Services.css";
+import "./services.css";
 
 import trademarkImage from "../../assets/trademark.png";
 import brandImage from "../../assets/loyalty-program.png";
