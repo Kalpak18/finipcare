@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "./Footer.css";
+import "./footer.css";
 
 export default function Footer() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
