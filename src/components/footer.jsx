@@ -35,7 +35,10 @@ export default function Footer() {
     background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
     color: '#ffffff',
     width: '100%',
-    padding: isMobile ? '40px 16px 20px 16px' : '60px 20px 20px 20px',
+    paddingTop: isMobile ? '40px' : '60px',
+    paddingRight: isMobile ? '16px' : '20px',
+    paddingBottom: isMobile ? '20px' : '20px',
+    paddingLeft: isMobile ? '16px' : '20px',
     marginTop: 'auto',
   };
 
@@ -52,7 +55,10 @@ export default function Footer() {
   const consultantCardStyle = {
     background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)',
     borderRadius: isMobile ? '16px' : '20px',
-    padding: isMobile ? '20px' : '30px',
+    paddingTop: isMobile ? '20px' : '30px',
+    paddingRight: isMobile ? '20px' : '30px',
+    paddingBottom: isMobile ? '20px' : '30px',
+    paddingLeft: isMobile ? '20px' : '30px',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255,255,255,0.1)',
     boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
@@ -168,7 +174,10 @@ export default function Footer() {
 
   const serviceTagStyle = { 
     background: 'rgba(255,255,255,0.08)', 
-    padding: isMobile ? '6px 10px' : '8px 12px', 
+    paddingTop: isMobile ? '6px' : '8px',
+    paddingBottom: isMobile ? '6px' : '8px',
+    paddingLeft: isMobile ? '10px' : '12px',
+    paddingRight: isMobile ? '10px' : '12px',    
     borderRadius: isMobile ? '10px' : '12px', 
     fontSize: isMobile ? '11px' : '12px', 
     color: '#cccccc', 

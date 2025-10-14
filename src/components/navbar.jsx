@@ -103,7 +103,9 @@ export default function Navbar() {
     alignItems: "center",
     background: "#f3f4f6",
     color: "#0b1a2b",
-    padding: isMobile ? "8px 0" : "11px 0",
+    paddingTop: isMobile ? "8px" : "11px",
+    paddingRight: isMobile ? "0" : "0",
+    paddingBottom: isMobile ? "8px" : "11px",
     paddingLeft: isMobile ? "20px" : "60px",
     fontSize: isMobile ? "0.8rem" : "0.95rem",
     fontWeight: "600",
@@ -160,18 +162,17 @@ export default function Navbar() {
   };
 
   const containerStyle = {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: isMobile 
-      ? "12px 16px" 
-      : scrolled 
-        ? "16px 24px" 
-        : "36px 24px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    transition: "all 0.3s ease",
-  };
+  maxWidth: "1200px",
+  margin: "0 auto",
+  paddingTop: isMobile ? "12px" : scrolled ? "16px" : "36px",
+  paddingRight: isMobile ? "16px" : "24px",
+  paddingBottom: isMobile ? "12px" : scrolled ? "16px" : "36px",
+  paddingLeft: isMobile ? "16px" : "24px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  transition: "all 0.3s ease",
+};
 
   const linksContainerStyle = {
     display: isMobile ? "none" : "flex",
@@ -190,9 +191,16 @@ export default function Navbar() {
   };
 
   const linkActiveStyle = {
-    color: "#2563eb",
-    fontWeight: "600",
-  };
+  color: "#2563eb",
+  fontWeight: "600",
+  textDecoration: "none",
+  position: "relative",
+  paddingTop: "0",
+  paddingRight: "0",
+  paddingBottom: "12px", // only bottom is needed
+  paddingLeft: "0",
+};
+
 
   const hamburgerStyle = {
     display: isMobile ? "flex" : "none",
@@ -234,13 +242,20 @@ export default function Navbar() {
     borderBottom: "1px solid #f3f4f6",
     fontSize: "1rem",
     transition: "background-color 0.3s",
+    textAlign: "center",
   };
-
   const mobileLinkActiveStyle = {
-    backgroundColor: "#f8fafc",
-    color: "#2563eb",
-    fontWeight: "600",
-  };
+  backgroundColor: "#f8fafc",
+  color: "#2563eb",
+  fontWeight: "600",
+  position: "relative",
+  paddingTop: "16px",
+  paddingRight: "20px",
+  paddingBottom: "20px",
+  paddingLeft: "20px",
+  textAlign: "center",
+};
+
 
   const mobileLinkHoverStyle = {
     backgroundColor: "#f8fafc",
@@ -288,17 +303,32 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div style={linksContainerStyle}>
             {links.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                style={
-                  location.pathname === link.path
-                    ? { ...linkStyle, ...linkActiveStyle }
-                    : linkStyle
-                }
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} style={{ position: "relative", paddingBottom: "8px" }}>
+                <Link
+                  to={link.path}
+                  style={
+                    location.pathname === link.path
+                      ? { ...linkStyle, ...linkActiveStyle }
+                      : linkStyle
+                  }
+                >
+                  {link.name} {/* Add this - was missing */}
+                </Link>
+                {location.pathname === link.path && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "0", 
+                      left: "50%",
+                      transform: "translateX(-50%)", // Center it
+                      width: "120%", // 120% width as requested
+                      height: "3px",
+                      backgroundColor: "#2563eb",
+                      borderRadius: "2px",
+                    }}
+                  />
+                )}
+              </div>
             ))}
           </div>
 
@@ -320,25 +350,42 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div style={mobileMenuStyle}>
           {links.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              style={{
-                ...mobileLinkStyle,
-                ...(location.pathname === link.path ? mobileLinkActiveStyle : {}),
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = mobileLinkHoverStyle.backgroundColor;
-              }}
-              onMouseLeave={(e) => {
-                if (location.pathname !== link.path) {
-                  e.target.style.backgroundColor = "";
-                }
-              }}
-            >
-              {link.name}
-            </Link>
+            <div key={link.name} style={{ position: "relative" }}>
+              <Link
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                style={{
+                  ...mobileLinkStyle,
+                  ...(location.pathname === link.path ? { 
+                    ...mobileLinkActiveStyle, 
+                    paddingBottom: "20px" 
+                  } : {}),
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = mobileLinkHoverStyle.backgroundColor;
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== link.path) {
+                    e.target.style.backgroundColor = "";
+                  }
+                }}
+              >
+                {link.name} {/* Add this - was missing */}
+              </Link>
+              {location.pathname === link.path && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "8px",
+                    left: "20px",
+                    width: "calc(100% - 40px)", // Span most of container
+                    height: "3px",
+                    backgroundColor: "#2563eb",
+                    borderRadius: "2px",
+                  }}
+                />
+              )}
+            </div>
           ))}
           
           {/* Mobile Contact Info */}
