@@ -1,0 +1,400 @@
+/* Wrapper */
+.about-wrapper {
+  font-family: 'Inter', sans-serif;
+  background: #f7f8fb;
+  line-height: 1.6;
+  color: #2D3748;
+}
+
+/* Hero Section */
+.about-hero {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(11,26,51,0.7), rgba(11,26,51,0.8)), url('https://plus.unsplash.com/premium_photo-1661765771430-fec42b8ea9d3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 140px 20px 80px;
+  position: relative;
+}
+
+.about-hero.mobile {
+  min-height: 60vh;
+  background-attachment: scroll;
+  padding: 100px 20px 60px;
+}
+
+.about-hero-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-hero h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  font-size: 3.2rem;
+}
+
+.about-hero.mobile h1 {
+  font-size: 2.2rem;
+}
+
+.gold-text {
+  color: #D4AF37;
+}
+
+.about-hero p {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.95);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.about-hero.mobile p {
+  font-size: 1.1rem;
+}
+
+/* Company Info Section */
+.company-info-section {
+  padding: 80px 20px;
+  background: #FFFFFF;
+}
+
+.company-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.company-info-card {
+  background: #f7f8fb;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(12,18,31,0.04);
+  border: 1px solid rgba(12,18,31,0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.company-info-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.company-info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0b1a2b;
+  margin-bottom: 12px;
+}
+
+.company-info-card p {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* Location Highlight */
+.company-location-highlight {
+  background: linear-gradient(135deg, #0b1a2b, #1a365d);
+  padding: 40px;
+  border-radius: 16px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.company-location-highlight h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #D4AF37;
+}
+
+.company-location-highlight p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.company-location-highlight p.italic {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 80px 20px;
+  background: #f7f8fb;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: #FFFFFF;
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(12,18,31,0.04);
+  border: 1px solid rgba(12,18,31,0.06);
+}
+
+.stat-card h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #D4AF37;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2D3748;
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 20px;
+  background: #FFFFFF;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #f7f8fb;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(12,18,31,0.04);
+  border: 1px solid rgba(12,18,31,0.06);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(12,18,31,0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.services-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0b1a2b;
+  margin-bottom: 12px;
+}
+
+.services-section p {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* Additional Services */
+.additional-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 800px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.additional-service-item {
+  padding: 12px 16px;
+  background: #f7f8fb;
+  border-radius: 8px;
+  color: #2D3748;
+  font-weight: 500;
+  border: 1px solid rgba(12,18,31,0.06);
+}
+
+/* Team Section */
+.team-section {
+  padding: 80px 20px;
+  background: #f7f8fb;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.team-card {
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(12,18,31,0.04);
+  border: 1px solid rgba(12,18,31,0.06);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(12,18,31,0.15);
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #f7f8fb;
+}
+
+.team-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0b1a2b;
+}
+
+.team-card .role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 16px;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.about-cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: #0b1a2b;
+}
+
+.about-cta h2 {
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.about-cta p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-cta button {
+  background: linear-gradient(90deg, #D4AF37, #F5D488);
+  color: #0b1a2b;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about-cta button:hover {
+  transform: scale(1.05);
+}
+
+/* -------- Responsive Media Queries -------- */
+@media (max-width: 1024px) {
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .company-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .additional-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 100px 20px 60px;
+    min-height: 60vh;
+    background-attachment: scroll;
+  }
+
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-hero p {
+    font-size: 1.1rem;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+  .team-section {
+    grid-template-columns: 1fr;
+  }
+
+  .additional-services {
+    grid-template-columns: 1fr;
+  }
+
+  .services-section .service-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+
+  .about-cta h2 {
+    font-size: 2rem;
+  }
+
+  .about-cta p {
+    font-size: 1rem;
+  }
+
+  .services-section .service-card {
+    padding: 16px;
+  }
+}
