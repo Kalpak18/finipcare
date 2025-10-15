@@ -1,5 +1,6 @@
 // src/pages/Services.jsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./services.css";
 import { Mail } from "lucide-react";
@@ -11,6 +12,7 @@ import copyrightImage from "../../assets/copyright.png";
 export default function Services() {
   const [activeService, setActiveService] = useState("trademark");
   const [isMobile, setIsMobile] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
@@ -234,27 +236,26 @@ export default function Services() {
             {/* CTA */}
             <div className="service-cta">
              <button
-                className="cta-primary"
-                onClick={() => {
-                  window.location.href = "/contact"; // redirect to contact page
-                }}
-              >
-                Get Started Now
-              </button>
+    className="cta-primary"
+    onClick={() => navigate("/contact")}
+  >
+    Get Started Now
+  </button>
 
-              <button
-                className="cta-secondary flex items-center gap-4"
-                onClick={() => {
-                  const subject = encodeURIComponent(`${active.title} - Inquiry`);
-                  const body = encodeURIComponent(
-                    `Hi,\n\nI would like to know more about ${active.title}. Please share next steps and pricing details.\n\nThanks.`
-                  );
-                  window.location.href = `mailto:info@veronicaconsultants.com?subject=${subject}&body=${body}`;
-                }}
-              >
-                <Mail className="w-5 h-5" /> {/* email favicon/icon */}
-                Contact us
-              </button>
+  <button
+    className="cta-secondary flex items-center justify-center gap-4"
+    onClick={() => {
+      const subject = encodeURIComponent(`${active.title} - Inquiry`);
+      const body = encodeURIComponent(
+        `Hi,\n\nI would like to know more about ${active.title}. Please share next steps and pricing details.\n\nThanks.`
+      );
+      const mailtoURL = `mailto:info@veronicaconsultants.com?subject=${subject}&body=${body}`;
+      window.open(mailtoURL, "_blank"); // works better on mobile
+    }}
+  >
+    <Mail className="w-5 h-5" />
+    Contact Us
+  </button>
             </div>
           </motion.div>
         </div>

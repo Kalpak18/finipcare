@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/scrollToTop";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import Home from "./pages/Home/Home";
@@ -11,6 +12,7 @@ export default function App() {
   return (
     <div style={{ overflowX: "hidden", width: "100%" }}>
     <div className="flex flex-col min-h-screen">
+       <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
         <Routes>
