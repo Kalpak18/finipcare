@@ -77,7 +77,7 @@ This is a test message with current form data.`;
       "_self"
     );
   const handleMap = () => {
-    const address = "203 Business Avenue, Baner, Pune, Maharashtra 411045";
+    const address = "Shashank Enterprises, Shop N0.1, West, near Maitri Tailor, Jindal Colony Number 3, Sainath Nagar, Vasind, Maharashtra 421604";
     window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, "_blank");
   };
 
@@ -97,7 +97,7 @@ This is a test message with current form data.`;
         <div className="contact-info-card" onClick={handleMap}>
           <MapPin color="#1565c0" size={35} />
           <h3>Visit Our Office</h3>
-          <p>203 Business Avenue, Baner, Pune, Maharashtra 411045</p>
+          <p>Shashank Enterprises, Shop N0.1, West, near Maitri Tailor, Jindal Colony Number 3, Sainath Nagar, Vasind, Maharashtra 421604</p>
           <p>Click to Open Map</p>
         </div>
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./services.css";
+import { Mail } from "lucide-react";
 
 import trademarkImage from "../../assets/trademark.png";
 import brandImage from "../../assets/loyalty-program.png";
@@ -232,16 +233,27 @@ export default function Services() {
 
             {/* CTA */}
             <div className="service-cta">
-              <button className="cta-primary">Get Started Now</button>
+             <button
+                className="cta-primary"
+                onClick={() => {
+                  window.location.href = "/contact"; // redirect to contact page
+                }}
+              >
+                Get Started Now
+              </button>
+
               <button
-                className="cta-secondary"
+                className="cta-secondary flex items-center gap-4"
                 onClick={() => {
                   const subject = encodeURIComponent(`${active.title} - Inquiry`);
-                  const body = encodeURIComponent(`Hi,\n\nI would like to know more about ${active.title}. Please share next steps and pricing details.\n\nThanks.`);
+                  const body = encodeURIComponent(
+                    `Hi,\n\nI would like to know more about ${active.title}. Please share next steps and pricing details.\n\nThanks.`
+                  );
                   window.location.href = `mailto:info@veronicaconsultants.com?subject=${subject}&body=${body}`;
                 }}
               >
-                Contact Us
+                <Mail className="w-5 h-5" /> {/* email favicon/icon */}
+                Contact us
               </button>
             </div>
           </motion.div>

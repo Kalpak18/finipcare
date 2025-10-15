@@ -56,12 +56,12 @@ export default function About() {
   const companyInfo = [
     {
       title: "About Our Company",
-      content: "Finipcare Consultants in Kothrud, Pune is one of the leading businesses in the Trademark Registration Consultants sector. With years of expertise, we serve as your trusted partner for all legal and certification needs.",
+      content: "Finipcare Consultants in Vasind, Mumbai is one of the leading businesses in the Trademark Registration Consultants sector. With years of expertise, we serve as your trusted partner for all legal and certification needs.",
       icon: "🏢"
     },
     {
       title: "Our Location & Reach",
-      content: "Strategically located in Kothrud, Pune, we serve clients both locally and from across the region. Our prominent location at New DP Road, near Badhai Sweet Chowk, makes us easily accessible to all our valued clients.",
+      content: "Strategically located in Vasind, Mumbai, we serve clients both locally and from across the region. Our prominent location at Murbad Road, Sainath Nagar, near Twins cafe, makes us easily accessible to all our valued clients.",
       icon: "📍"
     },
     {
@@ -93,7 +93,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Leading Trademark Registration Consultants in Kothrud, Pune - Your trusted partner for business compliance and certification services.
+            Leading Trademark Registration Consultants in Vasind, Mumbai - Your trusted partner for business compliance and certification services.
           </motion.p>
         </div>
       </section>
@@ -120,7 +120,7 @@ export default function About() {
         </div>
         <motion.div className="company-location-highlight">
           <h3>📍 Our Location</h3>
-          <p>New DP Road, near Badhai Sweet Chowk, Kothrud, Pune</p>
+          <p>Murbad Road, Sainath Nagar, in front of Twins Cafe, Vaisnd(w)</p>
           <p className="italic">Easily accessible with various modes of transport readily available</p>
         </motion.div>
       </section>
